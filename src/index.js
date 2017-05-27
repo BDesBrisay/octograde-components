@@ -5,7 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import {blue500, blue700} from 'material-ui/styles/colors';
+import { blue500, blue700 } from 'material-ui/styles/colors';
 
 import App from './App';
 
