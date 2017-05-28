@@ -65,19 +65,21 @@ const classes = [
 ];
 
 const StudentDash = () => (
-  <GridList style={{padding: 10}} cols={4}>
-   <Subheader>Classes</Subheader>
-    {classes.map(classObj => (
-      <GridTile
-        titlePosition={'top'}
-        key={classObj.id}
-        title={classObj.title}
-        subtitle={<span><b>{classObj.teacher}</b></span>}
-        actionIcon={<IconButton><MoreVert color="white" /></IconButton>}
-        style={{backgroundColor: 'blue'}}
-      / >
-    ))}
-  </GridList>
+  <div className='container-dash'>
+    <GridList style={{padding: 10, paddingTop: 40}} cols={4}>
+      <Subheader>Classes</Subheader>
+      {classes.map(classObj => (
+        <GridTile
+          titlePosition={'top'}
+          key={classObj.id}
+          title={classObj.title}
+          subtitle={<span><b>{classObj.teacher}</b></span>}
+          actionIcon={<IconButton><MoreVert color="white" /></IconButton>}
+          style={{backgroundColor: 'blue', margin: 10}}
+        / >
+      ))}
+    </GridList>
+  </div>
 );
 
 export default StudentDash
