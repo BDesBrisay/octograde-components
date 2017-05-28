@@ -6,12 +6,13 @@ import MenuItem from 'material-ui/MenuItem';
 import IconButton from 'material-ui/IconButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import ActionHome from 'material-ui/svg-icons/action/home';
+import { Link } from 'react-router-dom'
 
 const Header = () => (
   <AppBar
     title='Octograde'
     titleStyle={{fontFamily: 'Pacifico', textAlign: 'center'}}
-    iconElementLeft={<IconButton><ActionHome /></IconButton>}
+    iconElementLeft={<Link to="/"><IconButton><ActionHome color='white'/></IconButton></Link>}
     iconElementRight={
       <IconMenu
         iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
