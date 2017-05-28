@@ -4,6 +4,12 @@ import {GridList, GridTile} from 'material-ui/GridList';
 import IconButton from 'material-ui/IconButton';
 import Subheader from 'material-ui/Subheader';
 import MoreVert from 'material-ui/svg-icons/navigation/more-vert';
+import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+import FloatingActionButton from 'material-ui/FloatingActionButton';
+import ContentAdd from 'material-ui/svg-icons/content/add';
+import IconMenu from 'material-ui/IconMenu';
+import MenuItem from 'material-ui/MenuItem';
+
 
 const classes = [
   {
@@ -65,19 +71,24 @@ const classes = [
 ];
 
 const StudentDash = () => (
-  <GridList style={{padding: 10}} cols={4}>
-   <Subheader>Classes</Subheader>
-    {classes.map(classObj => (
-      <GridTile
-        titlePosition={'top'}
-        key={classObj.id}
-        title={classObj.title}
-        subtitle={<span><b>{classObj.teacher}</b></span>}
-        actionIcon={<IconButton><MoreVert color="white" /></IconButton>}
-        style={{backgroundColor: 'blue'}}
-      / >
-    ))}
-  </GridList>
+  <div>
+    <div className='containerDash'>
+      <GridList style={{paddingTop: 70}} padding={25} cellHeight='auto' cols={4}>
+        <Subheader style={{marginBottom: 10}}>
+          <h1 >Classes</h1>
+        </Subheader>
+        {classes.map(classObj => (
+          <Card style={{borderRadius: 4}} key={classObj.id}>
+            <CardTitle title={classObj.title} subtitle={classObj.teacher} />
+            <CardText>{classObj.description}</CardText>
+          </Card>
+        ))}
+      </GridList>
+    </div>
+    <FloatingActionButton style={{position: 'absolute', bottom: 50, right: 50}}>
+      <ContentAdd />
+    </FloatingActionButton>
+  </div>
 );
 
 export default StudentDash

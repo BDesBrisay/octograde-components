@@ -13,6 +13,7 @@ const muiTheme = getMuiTheme({
   palette: {
     primary1Color: blue500,
     primary2Color: blue700,
+    FloatingActionButton: blue500,
   },
 });
 
