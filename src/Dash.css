@@ -1,6 +1,10 @@
-.container-dash
+.containerDash
 {
-    width: 80%;
+    width: 75%;
     margin-right: auto;
     margin-left: auto;
+}
+.classBG
+{
+    background-color: teal;
 }
