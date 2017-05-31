@@ -9,6 +9,8 @@ import FloatingActionButton from 'material-ui/FloatingActionButton';
 import ContentAdd from 'material-ui/svg-icons/content/add';
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
+import Divider from 'material-ui/Divider';
+import Dialog from 'material-ui/Dialog';
 
 
 const classes = [
@@ -74,12 +76,14 @@ const StudentDash = () => (
   <div>
     <div className='containerDash'>
       <GridList style={{paddingTop: 70}} padding={25} cellHeight='auto' cols={4}>
-        <Subheader style={{marginBottom: 10}}>
-          <h1 >Classes</h1>
+        <Subheader style={{marginBottom: 20}}>
+          <h1>Classes</h1>
+          <Divider />
         </Subheader>
         {classes.map(classObj => (
           <Card style={{borderRadius: 4}} key={classObj.id}>
             <CardTitle title={classObj.title} subtitle={classObj.teacher} />
+            <Divider />
             <CardText>{classObj.description}</CardText>
           </Card>
         ))}
