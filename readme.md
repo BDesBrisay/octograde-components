@@ -1,2 +1,2 @@
-# Image Tools
-Image editor react component
+# Octograde Components
+React components for Octograde
