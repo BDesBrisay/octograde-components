@@ -1,0 +1,69 @@
+
+/* - Larger Screen Sizes - */
+@media only screen and (min-width: 1024px)
+{
+    .containerClass
+    {
+        width: 80%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .classMenu
+    {
+        float: left;
+
+        width: 250px;
+
+        background-color: blue;
+    }
+    .classStream
+    {
+        float: right;
+
+        width: calc(100% - 250px);
+        height: 30px;
+
+        background-color: red;
+    }
+}
+
+/* - Smaller Screen Sizes - */
+@media only screen and (max-width: 1024px)
+{
+    .containerClass
+    {
+        width: 95%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .classMenu
+    {
+        float: left;
+
+        width: 100%;
+
+        background-color: blue;
+    }
+    .classStream
+    {
+        float: left;
+
+        width: 100%;
+        height: 30px;
+
+        background-color: red;
+    }
+}
+
+/* - Universal Width Styles - */
+.classInfoCont
+{
+    line-height: normal !important;
+
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+.classBody
+{
+    width: 100%;
+}

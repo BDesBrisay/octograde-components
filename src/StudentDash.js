@@ -9,6 +9,12 @@ import FloatingActionButton from 'material-ui/FloatingActionButton';
 import ContentAdd from 'material-ui/svg-icons/content/add';
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
+import Divider from 'material-ui/Divider';
+import Dialog from 'material-ui/Dialog';
+import { SpeedDial, BubbleList, BubbleListItem } from 'react-speed-dial';
+import Avatar from 'material-ui/Avatar';
+import { blue500 } from 'material-ui/styles/colors';
+import { Link } from 'react-router-dom';
 
 
 const classes = [
@@ -70,24 +76,51 @@ const classes = [
   }
 ];
 
+const list = {
+	items: [
+		{
+			primaryText: 'Join a Class',
+			rightAvatar: <Avatar backgroundColor={blue500} icon={<ContentAdd />} />,
+		},
+		{
+			primaryText: 'Create a Class',
+			rightAvatar: <Avatar backgroundColor={blue500} icon={<ContentAdd />} />,
+		},
+	],
+};
+
 const StudentDash = () => (
   <div>
     <div className='containerDash'>
-      <GridList style={{paddingTop: 70}} padding={25} cellHeight='auto' cols={4}>
-        <Subheader style={{marginBottom: 10}}>
-          <h1 >Classes</h1>
+      <GridList style={{paddingTop: 70}} padding={30} cellHeight='auto' cols={3}>
+        <Subheader style={{marginBottom: 20}}>
+          <h1>Classes</h1>
+          <Divider />
         </Subheader>
         {classes.map(classObj => (
-          <Card style={{borderRadius: 4}} key={classObj.id}>
-            <CardTitle title={classObj.title} subtitle={classObj.teacher} />
-            <CardText>{classObj.description}</CardText>
-          </Card>
+          <Link to="/Class" style={{textDecoration: 'none'}}>
+            <Card className='level1' style={{borderRadius: 4}} key={classObj.id}>
+              <CardTitle title={classObj.title} subtitle={classObj.teacher} />
+              <Divider />
+              <CardText>{classObj.description}</CardText>
+            </Card>
+          </Link>
         ))}
       </GridList>
     </div>
-    <FloatingActionButton style={{position: 'absolute', bottom: 50, right: 50}}>
-      <ContentAdd />
-    </FloatingActionButton>
+    <SpeedDial hasBackdrop={false}>
+			<BubbleList>
+				{list.items.map((item, index) => {
+					return (
+            <BubbleListItem
+              key={index}
+              primaryText={item.primaryText}
+              rightAvatar={item.rightAvatar}
+            />
+          );
+				})}
+			</BubbleList>
+		</SpeedDial>
   </div>
 );
 
