@@ -92,7 +92,7 @@ const list = {
 const StudentDash = () => (
   <div>
     <div className='containerDash'>
-      <GridList style={{paddingTop: 70}} padding={25} cellHeight='auto' cols={4}>
+      <GridList style={{paddingTop: 70}} padding={30} cellHeight='auto' cols={3}>
         <Subheader style={{marginBottom: 20}}>
           <h1>Classes</h1>
           <Divider />

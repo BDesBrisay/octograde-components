@@ -1,9 +1,24 @@
-.containerDash
+/* - Larger Screen Sizes - */
+@media only screen and (min-width: 1024px)
 {
-    width: 75%;
-    margin-right: auto;
-    margin-left: auto;
+    .containerDash
+    {
+        width: 80%;
+        margin-right: auto;
+        margin-left: auto;
+    }
 }
+/* - Smaller Screen Sizes - */
+@media only screen and (max-width: 1024px)
+{
+    .containerDash
+    {
+        width: 95%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+}
+
 .classBG
 {
     background-color: teal;
