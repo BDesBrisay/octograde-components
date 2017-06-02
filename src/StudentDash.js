@@ -11,6 +11,9 @@ import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import Divider from 'material-ui/Divider';
 import Dialog from 'material-ui/Dialog';
+import { SpeedDial, BubbleList, BubbleListItem } from 'react-speed-dial';
+import Avatar from 'material-ui/Avatar';
+import { blue500 } from 'material-ui/styles/colors';
 
 
 const classes = [
@@ -72,6 +75,19 @@ const classes = [
   }
 ];
 
+const list = {
+	items: [
+		{
+			primaryText: 'Join a Class',
+			rightAvatar: <Avatar backgroundColor={blue500} icon={<ContentAdd />} />,
+		},
+		{
+			primaryText: 'Create a Class',
+			rightAvatar: <Avatar backgroundColor={blue500} icon={<ContentAdd />} />,
+		},
+	],
+};
+
 const StudentDash = () => (
   <div>
     <div className='containerDash'>
@@ -89,9 +105,19 @@ const StudentDash = () => (
         ))}
       </GridList>
     </div>
-    <FloatingActionButton style={{position: 'absolute', bottom: 50, right: 50}}>
-      <ContentAdd />
-    </FloatingActionButton>
+    <SpeedDial hasBackdrop={false}>
+			<BubbleList>
+				{list.items.map((item, index) => {
+					return (
+            <BubbleListItem
+              key={index}
+              primaryText={item.primaryText}
+              rightAvatar={item.rightAvatar}
+            />
+          );
+				})}
+			</BubbleList>
+		</SpeedDial>
   </div>
 );
 
