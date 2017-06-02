@@ -14,6 +14,7 @@ import Dialog from 'material-ui/Dialog';
 import { SpeedDial, BubbleList, BubbleListItem } from 'react-speed-dial';
 import Avatar from 'material-ui/Avatar';
 import { blue500 } from 'material-ui/styles/colors';
+import { Link } from 'react-router-dom';
 
 
 const classes = [
@@ -97,11 +98,13 @@ const StudentDash = () => (
           <Divider />
         </Subheader>
         {classes.map(classObj => (
-          <Card style={{borderRadius: 4}} key={classObj.id}>
-            <CardTitle title={classObj.title} subtitle={classObj.teacher} />
-            <Divider />
-            <CardText>{classObj.description}</CardText>
-          </Card>
+          <Link to="/Class" style={{textDecoration: 'none'}}>
+            <Card className='level1' style={{borderRadius: 4}} key={classObj.id}>
+              <CardTitle title={classObj.title} subtitle={classObj.teacher} />
+              <Divider />
+              <CardText>{classObj.description}</CardText>
+            </Card>
+          </Link>
         ))}
       </GridList>
     </div>
