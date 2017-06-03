@@ -8,7 +8,7 @@ import './Class.css';
 
 const avatarLink = "http://pm1.narvii.com/6028/1e3c8d53a71135affe2a1ecdec7526cdfde912e9_128.jpg";
 
-const ClassStream = () => {
+const ClassStream = () => {  
   return (
     <div className="classStream">
     <Card expanded={this.state.expanded} onExpandChange={this.handleExpandChange}>

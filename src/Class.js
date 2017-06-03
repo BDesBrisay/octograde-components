@@ -62,8 +62,8 @@ const Class = () => {
   return (
     <div>
       <div className='containerClass'>
-        {classInfo.map(info => (
-          <Subheader className='classInfoCont'>
+        {classInfo.map((info, index) => (
+          <Subheader key={index} className='classInfoCont'>
             <h1>{info.title}</h1>
             <h4>{info.teacher}</h4>
             <h3>{info.description}</h3>
@@ -74,8 +74,8 @@ const Class = () => {
           <div className='classMenu'>
             <Paper style={style.paper}>
               <Menu autoWidth={true}>
-                {menuList.items.map(item => (
-                  <MenuItem primaryText={item.primaryText} leftIcon={item.leftIcon} />
+                {menuList.items.map((item, index) => (
+                  <MenuItem key={index} primaryText={item.primaryText} leftIcon={item.leftIcon} />
                 ))}
               </Menu>
             </Paper>
