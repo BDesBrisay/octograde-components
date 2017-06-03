@@ -5,6 +5,7 @@ import Divider from 'material-ui/Divider';
 import Paper from 'material-ui/Paper';
 import Menu from 'material-ui/Menu';
 import MenuItem from 'material-ui/MenuItem';
+import ClassStream from './ClassStream';
 
 import ActionList from 'material-ui/svg-icons/action/list';
 import FilterList from 'material-ui/svg-icons/content/filter-list';
@@ -79,9 +80,7 @@ const Class = () => {
               </Menu>
             </Paper>
           </div>
-          <div className='classStream'>
-
-          </div>
+          <ClassStream />
         </div>
       </div>
     </div>
