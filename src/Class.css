@@ -13,21 +13,23 @@
         float: left;
 
         width: 250px;
-
-        background-color: blue;
     }
     .classStream
     {
         float: right;
 
         width: calc(100% - 250px);
-        height: 30px;
+    }
+    .paperMenu
+    {
+        display: inline-block;
+        float: left;
 
-        background-color: red;
+        margin: 0 32px 16px 0;
     }
 }
 
-/* - Smaller Screen Sizes - */
+/* - Medium Screen Sizes - */
 @media only screen and (max-width: 1024px)
 {
     .containerClass
@@ -40,18 +42,50 @@
     {
         float: left;
 
-        width: 100%;
+        width: 30%;
+    }
+    .classStream
+    {
+        float: right;
 
-        background-color: blue;
+        width: 68%;
+    }
+    .paperMenu
+    {
+        display: block;
+
+        margin: 0 auto 16px;
+        padding-top: 1px;
+    }
+}
+
+/* - Small Screen Size - */
+@media only screen and (max-width: 740px)
+{
+    .containerClass
+    {
+        width: 95%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .classMenu
+    {
+        float: left;
+
+        width: 100%;
     }
     .classStream
     {
         float: left;
 
         width: 100%;
-        height: 30px;
+    }
+    .paperMenu
+    {
+        display: block;
 
-        background-color: red;
+        margin: 0 auto 20px;
+        padding-top: 1px;
     }
 }
 
@@ -66,4 +100,35 @@
 .classBody
 {
     width: 100%;
+    margin-top: 40px;
+}
+.classHeader
+{
+    padding: 0 20px;
+}
+.streamCardCont
+{
+    padding: 5px 15px !important;
+}
+.cardInit
+{
+    display: flex;
+
+    width: 100%;
+    height: 4rem;
+
+    background-color: red;
+
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: stretch;
+}
+.cardInitItem
+{
+    display: flex;
+
+    text-align: center;
+
+    align-items: center;
+    justify-content: center;
 }
