@@ -108,19 +108,19 @@
 }
 .streamCardCont
 {
-    padding: 5px 15px !important;
+    padding: 8px 15px 0 !important;
 }
 .cardInit
 {
+    font-size: 1em;
+
     display: flex;
 
     width: 100%;
     height: 4rem;
 
-    background-color: red;
-
     flex-flow: row nowrap;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: stretch;
 }
 .cardInitItem

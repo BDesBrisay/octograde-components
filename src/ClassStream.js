@@ -50,6 +50,14 @@ const chips = [
   { key: 4, text: 'Globalization' },
 ]
 
+const assignmentNames = [
+  'Demand',
+  'Supply',
+  'Equlibrium',
+  'Price Floor',
+  'Price Ceiling',
+]
+
 /*
   <div style={styles.wrapper}
     chips.map((item) => {
@@ -62,14 +70,6 @@ const chips = [
   </div>
 */
 
-const assignmentNames = [
-  'Demand',
-  'Supply',
-  'Equlibrium',
-  'Price Floor',
-  'Price Ceiling',
-]
-
 const ClassStream = () => {
   return (
     <div className='classStream'>
@@ -77,16 +77,30 @@ const ClassStream = () => {
         <ToolbarGroup>
           <TextField
             hintText='Search'
+            fullWidth={true}
+            style={{minWidth: 100,}}
           />
           <IconButton>
             <Search />
           </IconButton>
         </ToolbarGroup>
         <ToolbarGroup>
-          <FlatButton
-            label="Filter"
-            icon={<FilterList />}
-          />
+          <IconMenu
+            iconButtonElement={
+              <FlatButton
+                label="Filter"
+                icon={<FilterList />}
+              />
+            }
+            anchorOrigin={{horizontal: 'right', vertical: 'bottom'}}
+            targetOrigin={{horizontal: 'right', vertical: 'top'}}
+          >
+            <MenuItem primaryText="Refresh" />
+            <MenuItem primaryText="Send feedback" />
+            <MenuItem primaryText="Settings" />
+            <MenuItem primaryText="Help" />
+            <MenuItem primaryText="Sign out" />
+          </IconMenu>
           <IconMenu
             iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
             anchorOrigin={{horizontal: 'right', vertical: 'bottom'}}
@@ -103,6 +117,15 @@ const ClassStream = () => {
       <Card className='level1'>
         <CardText actAsExpander={true} className='streamCardCont'>
           <div className='cardInit'>
+            <div className='cardInitItem'>
+              <h1>10/12</h1>
+            </div>
+            <div className='cardInitItem'>
+              <h1>10/12</h1>
+            </div>
+            <div className='cardInitItem'>
+              <h1>10/12</h1>
+            </div>
             <div className='cardInitItem'>
               <h1>10/12</h1>
             </div>
