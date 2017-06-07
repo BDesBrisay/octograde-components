@@ -95,15 +95,15 @@ const assignments = {
 };
 
 /*
-  <div style={styles.wrapper}
-    chips.map((item) => {
-      return (
-        <Chip key={item.key} style={styles.chip}>
-          {item.text}
-        </Chip>
-      );
-    })
-  </div>
+<div style={styles.wrapper}>
+  {chips.map((item) => {
+    return(
+      <Chip key={item.key} style={styles.chip}>
+        {item.text}
+      </Chip>
+    )
+  })}
+</div>
 */
 
 const ClassStream = () => {
@@ -191,6 +191,15 @@ const ClassStream = () => {
             Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
             Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
           </CardText>
+          <div style={styles.wrapper} expandable={true}>
+            {chips.map((item) => {
+              return(
+                <Chip key={item.key} style={styles.chip}>
+                  {item.text}
+                </Chip>
+              )
+            })}
+          </div>
           <CardActions expandable={true}>
             <FlatButton label="Add/Create Content" />
             <FlatButton style={styles.turnInButton} label="Turn In" />
