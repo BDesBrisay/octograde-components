@@ -21,6 +21,7 @@ import Forum from 'material-ui/svg-icons/communication/forum';
 import Beenhere from 'material-ui/svg-icons/maps/beenhere';
 import Folder from 'material-ui/svg-icons/file/folder';
 import Email from 'material-ui/svg-icons/communication/email';
+import ActionEvent from 'material-ui/svg-icons/action/event';
 
 import './Class.css';
 
@@ -40,6 +41,10 @@ const menuList = {
     {
       primaryText: 'Stream',
       leftIcon: <ActionList />,
+    },
+    {
+      primaryText: 'Calendar',
+      leftIcon: <ActionEvent />,
     },
     {
       primaryText: 'Grades',
