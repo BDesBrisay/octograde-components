@@ -27,6 +27,15 @@
 
         margin: 0 32px 16px 0;
     }
+
+    .cardInit
+    {
+        flex-flow: row nowrap;
+    }
+    .cardInitItem
+    {
+        flex-basis: 25%;
+    }
 }
 
 /* - Medium Screen Sizes - */
@@ -56,6 +65,11 @@
 
         margin: 0 auto 16px;
         padding-top: 1px;
+    }
+
+    .cardInit
+    {
+        flex-flow: row wrap;
     }
 }
 
@@ -87,6 +101,10 @@
         margin: 0 auto 20px;
         padding-top: 1px;
     }
+    .cardInit
+    {
+        flex-flow: row wrap;
+    }
 }
 
 /* - Universal Width Styles - */
@@ -108,19 +126,17 @@
 }
 .streamCardCont
 {
-    padding: 5px 15px !important;
+    padding: 8px 15px 0 !important;
 }
 .cardInit
 {
+    font-size: 1em;
+
     display: flex;
 
     width: 100%;
-    height: 4rem;
 
-    background-color: red;
-
-    flex-flow: row nowrap;
-    justify-content: space-around;
+    justify-content: flex-start;
     align-items: stretch;
 }
 .cardInitItem
@@ -130,5 +146,40 @@
     text-align: center;
 
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+}
+.cardInitItem > *
+{
+    font-weight: normal !important;
+}
+.cardInitItem svg
+{
+    margin: 8px;
+}
+.lastItemDone,
+.lastItemDone svg
+{
+    color: #4caf50 !important;
+
+    fill: #4caf50 !important;
+}
+.lastItemLate,
+.lastItemLate svg
+{
+    color: #ef5350 !important;
+
+    fill: #ef5350 !important;
+}
+.expanderIcon
+{
+    display: flex;
+
+    text-align: center;
+
+    align-items: center;
+    justify-content: flex-end;
+}
+.assignmentCard
+{
+    margin-bottom: 20px;
 }

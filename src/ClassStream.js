@@ -8,10 +8,21 @@ import IconButton from 'material-ui/IconButton';
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import TextField from 'material-ui/TextField';
+import {Tabs, Tab} from 'material-ui/Tabs';
+import { green500, green400 } from 'material-ui/styles/colors';
 
+import MapsPersonPin from 'material-ui/svg-icons/maps/person-pin';
 import Search from 'material-ui/svg-icons/action/search';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import FilterList from 'material-ui/svg-icons/content/filter-list';
+import Assignment from 'material-ui/svg-icons/action/assignment';
+import AssignmentLate from 'material-ui/svg-icons/action/assignment-late';
+import AssignmentReturn from 'material-ui/svg-icons/action/assignment-return';
+import Done from 'material-ui/svg-icons/action/done';
+import Today from 'material-ui/svg-icons/action/today';
+import Grade from 'material-ui/svg-icons/action/grade';
+import PriorityHigh from 'material-ui/svg-icons/notification/priority-high';
+import ExpandMore from 'material-ui/svg-icons/navigation/expand-more';
 
 import './Class.css';
 
@@ -50,6 +61,39 @@ const chips = [
   { key: 4, text: 'Globalization' },
 ]
 
+const assignments = {
+  items: [
+    {
+      id: 1,
+      name: 'Demand Worksheet',
+      dueDate: 'June 15',
+      grade: 'N/A',
+      turnedIn: false,
+    },
+    {
+      id: 2,
+      name: 'Graph Quiz',
+      dueDate: 'June 3',
+      grade: 'N/A',
+      turnedIn: true,
+    },
+    {
+      id: 3,
+      name: 'Supply Worksheet',
+      dueDate: 'June 3',
+      grade: '19/20',
+      turnedIn: true,
+    },
+    {
+      id: 4,
+      name: 'Demand Worksheet',
+      dueDate: 'May 25',
+      grade: '19/20',
+      turnedIn: true,
+    },
+  ]
+};
+
 /*
   <div style={styles.wrapper}
     chips.map((item) => {
@@ -62,14 +106,6 @@ const chips = [
   </div>
 */
 
-const assignmentNames = [
-  'Demand',
-  'Supply',
-  'Equlibrium',
-  'Price Floor',
-  'Price Ceiling',
-]
-
 const ClassStream = () => {
   return (
     <div className='classStream'>
@@ -77,16 +113,30 @@ const ClassStream = () => {
         <ToolbarGroup>
           <TextField
             hintText='Search'
+            fullWidth={true}
+            style={{minWidth: 100,}}
           />
           <IconButton>
             <Search />
           </IconButton>
         </ToolbarGroup>
         <ToolbarGroup>
-          <FlatButton
-            label="Filter"
-            icon={<FilterList />}
-          />
+          <IconMenu
+            iconButtonElement={
+              <FlatButton
+                label="Filter"
+                icon={<FilterList />}
+              />
+            }
+            anchorOrigin={{horizontal: 'right', vertical: 'bottom'}}
+            targetOrigin={{horizontal: 'right', vertical: 'top'}}
+          >
+            <MenuItem primaryText="Refresh" />
+            <MenuItem primaryText="Send feedback" />
+            <MenuItem primaryText="Settings" />
+            <MenuItem primaryText="Help" />
+            <MenuItem primaryText="Sign out" />
+          </IconMenu>
           <IconMenu
             iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
             anchorOrigin={{horizontal: 'right', vertical: 'bottom'}}
@@ -100,43 +150,54 @@ const ClassStream = () => {
           </IconMenu>
         </ToolbarGroup>
       </Toolbar>
-      <Card className='level1'>
-        <CardText actAsExpander={true} className='streamCardCont'>
-          <div className='cardInit'>
-            <div className='cardInitItem'>
-              <h1>10/12</h1>
+      {assignments.items.map((item) => {
+        return(
+        <Card key={item.id} className='level1 assignmentCard'>
+          <CardText actAsExpander={true} className='streamCardCont'>
+            <div className='cardInit'>
+              <div className='cardInitItem'>
+                <Assignment /> {item.name}
+              </div>
+              <div className='cardInitItem'>
+                <Today /> Due {item.dueDate}
+              </div>
+              <div className='cardInitItem'>
+                <Grade /> Grade: {item.grade}
+              </div>
+              {item.turnedIn ?
+                <div className='cardInitItem lastItemDone'><Done /> Done</div>
+                :
+                <div className='cardInitItem lastItemLate'><PriorityHigh /> Late</div>
+              }
+              <div className='expanderIcon'>
+                <ExpandMore />
+              </div>
             </div>
-            <div className='cardInitItem'>
-              <h1>10/12</h1>
-            </div>
-            <div className='cardInitItem'>
-              <h1>10/12</h1>
-            </div>
-          </div>
-        </CardText>
-        <CardHeader
-          title='URL Avatar'
-          subtitle='Subtitle'
-          avatar={avatarLink}
-          expandable={true}
-        />
-        <CardTitle
-          title='Card title'
-          subtitle='Card subtitle'
-          expandable={true}
-        />
-        <CardText expandable={true}>
-          <div style={{width: '100%', height: 30, backgroundColor: 'red'}}></div>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
-          Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
-          Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
-        </CardText>
-        <CardActions expandable={true}>
-          <FlatButton label="Reduce" />
-          <FlatButton style={styles.turnInButton} label="Turn In" />
-        </CardActions>
-      </Card>
+          </CardText>
+          <CardHeader
+            title='URL Avatar'
+            subtitle='Subtitle'
+            avatar={avatarLink}
+            expandable={true}
+          />
+          <CardTitle
+            title='Card title'
+            subtitle='Card subtitle'
+            expandable={true}
+          />
+          <CardText expandable={true}>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
+            Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
+            Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
+          </CardText>
+          <CardActions expandable={true}>
+            <FlatButton label="Add/Create Content" />
+            <FlatButton style={styles.turnInButton} label="Turn In" />
+          </CardActions>
+        </Card>
+        )
+      })}
     </div>
   );
 };

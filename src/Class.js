@@ -18,6 +18,10 @@ import ActionSettings from 'material-ui/svg-icons/action/settings';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import CreateContent from 'material-ui/svg-icons/content/create';
 import Forum from 'material-ui/svg-icons/communication/forum';
+import Beenhere from 'material-ui/svg-icons/maps/beenhere';
+import Folder from 'material-ui/svg-icons/file/folder';
+import Email from 'material-ui/svg-icons/communication/email';
+import ActionEvent from 'material-ui/svg-icons/action/event';
 
 import './Class.css';
 
@@ -27,6 +31,7 @@ const classInfo = [
     title: 'English 110 Period 4',
     description: 'A regular college level english class',
     teacher: 'David Skrenta',
+    teacherEmail: 'ThisTeacher@thisSchool.com',
     avatar: 'some url'
   }
 ];
@@ -38,8 +43,8 @@ const menuList = {
       leftIcon: <ActionList />,
     },
     {
-      primaryText: 'Filter',
-      leftIcon: <FilterList />,
+      primaryText: 'Calendar',
+      leftIcon: <ActionEvent />,
     },
     {
       primaryText: 'Grades',
@@ -48,6 +53,14 @@ const menuList = {
     {
       primaryText: 'Classmates',
       leftIcon: <People />,
+    },
+    {
+      primaryText: 'Attendance',
+      leftIcon: <Beenhere />,
+    },
+    {
+      primaryText: 'Class Drive',
+      leftIcon: <Folder />,
     },
     {
       primaryText: 'Class Settings',
@@ -92,7 +105,7 @@ const Class = () => {
                 <div key={index} className='classHeader'>
                   <h2>{info.title}</h2>
                   <h4>{info.teacher}</h4>
-                  <h3>{info.description}</h3>
+                  <p>{info.description}</p>
                 </div>
               ))}
               <Menu autoWidth={true}>
