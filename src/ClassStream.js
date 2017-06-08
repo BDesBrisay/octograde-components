@@ -10,6 +10,7 @@ import MenuItem from 'material-ui/MenuItem';
 import TextField from 'material-ui/TextField';
 import {Tabs, Tab} from 'material-ui/Tabs';
 import { green500, green400 } from 'material-ui/styles/colors';
+import Subheader from 'material-ui/Subheader';
 
 import MapsPersonPin from 'material-ui/svg-icons/maps/person-pin';
 import Search from 'material-ui/svg-icons/action/search';
@@ -18,11 +19,13 @@ import FilterList from 'material-ui/svg-icons/content/filter-list';
 import Assignment from 'material-ui/svg-icons/action/assignment';
 import AssignmentLate from 'material-ui/svg-icons/action/assignment-late';
 import AssignmentReturn from 'material-ui/svg-icons/action/assignment-return';
+import AssignmentTurnedIn from 'material-ui/svg-icons/action/assignment-turned-in';
 import Done from 'material-ui/svg-icons/action/done';
 import Today from 'material-ui/svg-icons/action/today';
 import Grade from 'material-ui/svg-icons/action/grade';
 import PriorityHigh from 'material-ui/svg-icons/notification/priority-high';
 import ExpandMore from 'material-ui/svg-icons/navigation/expand-more';
+import Refresh from 'material-ui/svg-icons/navigation/refresh';
 
 import './Class.css';
 
@@ -137,19 +140,32 @@ const ClassStream = () => {
             <MenuItem primaryText="Help" />
             <MenuItem primaryText="Sign out" />
           </IconMenu>
-          <IconMenu
-            iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
-            anchorOrigin={{horizontal: 'right', vertical: 'bottom'}}
-            targetOrigin={{horizontal: 'right', vertical: 'top'}}
+          <IconButton
+            tooltip='Refresh Stream'
+            tooltipPosition='bottom-left'
           >
-            <MenuItem primaryText="Refresh" />
-            <MenuItem primaryText="Send feedback" />
-            <MenuItem primaryText="Settings" />
-            <MenuItem primaryText="Help" />
-            <MenuItem primaryText="Sign out" />
-          </IconMenu>
+            <Refresh />
+          </IconButton>
         </ToolbarGroup>
       </Toolbar>
+      <Subheader style={{marginBottom: 10}}>
+          <div className='cardInit'>
+            <div className='cardInitItem'>
+              Title
+            </div>
+            <div className='cardInitItem'>
+              Due Date
+            </div>
+            <div className='cardInitItem'>
+              Grade
+            </div>
+            <div className='cardInitItem'>
+              State
+            </div>
+            <div className='expanderIcon'>
+            </div>
+          </div>
+        </Subheader>
       {assignments.items.map((item) => {
         return(
         <Card key={item.id} className='level1 assignmentCard'>
@@ -159,15 +175,15 @@ const ClassStream = () => {
                 <Assignment /> {item.name}
               </div>
               <div className='cardInitItem'>
-                <Today /> Due {item.dueDate}
+                <Today /> {item.dueDate}
               </div>
               <div className='cardInitItem'>
-                <Grade /> Grade: {item.grade}
+                <Grade /> {item.grade}
               </div>
               {item.turnedIn ?
-                <div className='cardInitItem lastItemDone'><Done /> Done</div>
+                <div className='cardInitItem itemDone'><Done /> Done</div>
                 :
-                <div className='cardInitItem lastItemLate'><PriorityHigh /> Late</div>
+                <div className='cardInitItem itemLate'><PriorityHigh /> Late</div>
               }
               <div className='expanderIcon'>
                 <ExpandMore />

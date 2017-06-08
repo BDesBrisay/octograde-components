@@ -9,6 +9,7 @@ import { SpeedDial, BubbleList, BubbleListItem } from 'react-speed-dial';
 import Avatar from 'material-ui/Avatar';
 import { blue500 } from 'material-ui/styles/colors';
 import { Link } from 'react-router-dom';
+import { List, ListItem } from 'material-ui';
 
 import ActionList from 'material-ui/svg-icons/action/list';
 import FilterList from 'material-ui/svg-icons/content/filter-list';
@@ -22,6 +23,10 @@ import Beenhere from 'material-ui/svg-icons/maps/beenhere';
 import Folder from 'material-ui/svg-icons/file/folder';
 import Email from 'material-ui/svg-icons/communication/email';
 import ActionEvent from 'material-ui/svg-icons/action/event';
+import Help from 'material-ui/svg-icons/action/help';
+import Announcement from 'material-ui/svg-icons/action/announcement';
+import Assessment from 'material-ui/svg-icons/action/assessment';
+import Assignment from 'material-ui/svg-icons/action/assignment';
 
 import './Class.css';
 
@@ -72,16 +77,12 @@ const menuList = {
 const actionList = {
 	items: [
 		{
-			primaryText: 'Create Post',
-			rightAvatar: <Avatar backgroundColor={blue500} icon={<ActionList />} />,
-		},
-		{
-			primaryText: 'Create Assignment',
-			rightAvatar: <Avatar backgroundColor={blue500} icon={<ActionSettings />} />,
+			primaryText: 'Create Announcement',
+			rightAvatar: <Avatar backgroundColor={blue500} icon={<Announcement />} />,
 		},
     {
-			primaryText: 'Create Assignment',
-			rightAvatar: <Avatar backgroundColor={blue500} icon={<ActionSettings />} />,
+			primaryText: 'Create Assessment',
+			rightAvatar: <Avatar backgroundColor={blue500} icon={<Assessment />} />,
 		},
     {
 			primaryText: 'Create Discussion',
@@ -89,7 +90,7 @@ const actionList = {
 		},
     {
 			primaryText: 'Create Assignment',
-			rightAvatar: <Avatar backgroundColor={blue500} icon={<ActionSettings />} />,
+			rightAvatar: <Avatar backgroundColor={blue500} icon={<Assignment />} />,
 		},
 	],
 };
@@ -118,7 +119,24 @@ const Class = () => {
           <ClassStream />
         </div>
       </div>
-      <SpeedDial hasBackdrop={false}>
+
+      <SpeedDial
+        hasBackdrop={false}
+        positionV='bottom'
+        positionH='left'
+        icon={<Help />}
+      >
+  			<Paper>
+          <List>
+            <Subheader>Help</Subheader>
+    				{actionList.items.map((item, index) => {
+    					return (<ListItem key={index} leftAvatar={item.rightAvatar} primaryText={item.primaryText} />);
+    				})}
+          </List>
+  			</Paper>
+  		</SpeedDial>
+
+      <SpeedDial icon={<CreateContent />} hasBackdrop={false}>
   			<BubbleList>
   				{actionList.items.map((item, index) => {
   					return (
