@@ -157,6 +157,16 @@
 {
     margin: 8px;
 }
+.tableItemCont
+{
+    display: flex;
+    overflow: hidden;
+
+    text-align: center;
+
+    align-items: center;
+    justify-content: flex-start;
+}
 .itemDone,
 .itemDone svg
 {

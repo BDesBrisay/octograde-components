@@ -136,7 +136,7 @@ const Class = () => {
   			</Paper>
   		</SpeedDial>
 
-      <SpeedDial icon={<CreateContent />} hasBackdrop={false}>
+      <SpeedDial icon={<CreateContent />} tooltip='Create Post' hasBackdrop={false}>
   			<BubbleList>
   				{actionList.items.map((item, index) => {
   					return (

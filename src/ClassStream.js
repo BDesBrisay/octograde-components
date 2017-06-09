@@ -8,9 +8,8 @@ import IconButton from 'material-ui/IconButton';
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import TextField from 'material-ui/TextField';
-import {Tabs, Tab} from 'material-ui/Tabs';
-import { green500, green400 } from 'material-ui/styles/colors';
 import Subheader from 'material-ui/Subheader';
+import { Table, TableBody, TableFooter, TableHeader, TableHeaderColumn, TableRow, TableRowColumn } from 'material-ui/Table';
 
 import MapsPersonPin from 'material-ui/svg-icons/maps/person-pin';
 import Search from 'material-ui/svg-icons/action/search';
@@ -148,24 +147,70 @@ const ClassStream = () => {
           </IconButton>
         </ToolbarGroup>
       </Toolbar>
+
+      <Table
+        fixedHeader={false}
+        fixedFooter={false}
+      >
+        <TableHeader
+          adjustForCheckbox={false}
+          displaySelectAll={false}
+          enableSelectAll={false}
+        >
+          <TableRow>
+            <TableHeaderColumn tooltip="The Name">Name</TableHeaderColumn>
+            <TableHeaderColumn tooltip="The Due Date">Due Date</TableHeaderColumn>
+            <TableHeaderColumn tooltip="The Grade">Grade</TableHeaderColumn>
+            <TableHeaderColumn tooltip="The Status">Status</TableHeaderColumn>
+          </TableRow>
+        </TableHeader>
+        <TableBody
+          displayRowCheckbox={false}
+        >
+          {assignments.items.map((item) => {
+            return(
+              <TableRow key={item.id}>
+                <TableRowColumn>
+                  <div className='tableItemCont'><Assignment />{item.name}</div>
+                </TableRowColumn>
+                <TableRowColumn>
+                  <div className='tableItemCont'><Today />{item.dueDate}</div>
+                </TableRowColumn>
+                <TableRowColumn>
+                  <div className='tableItemCont'><Grade /> {item.grade}</div>
+                </TableRowColumn>
+                <TableRowColumn>
+                  {item.turnedIn ?
+                    <div className='cardInitItem itemDone'><Done /> Done</div>
+                    :
+                    <div className='cardInitItem itemLate'><PriorityHigh /> Late</div>
+                  }
+                </TableRowColumn>
+              </TableRow>
+            );
+          })};
+        </TableBody>
+      </Table>
+
       <Subheader style={{marginBottom: 10}}>
-          <div className='cardInit'>
-            <div className='cardInitItem'>
-              Title
-            </div>
-            <div className='cardInitItem'>
-              Due Date
-            </div>
-            <div className='cardInitItem'>
-              Grade
-            </div>
-            <div className='cardInitItem'>
-              State
-            </div>
-            <div className='expanderIcon'>
-            </div>
+        <div className='cardInit'>
+          <div className='cardInitItem'>
+            Title
           </div>
-        </Subheader>
+          <div className='cardInitItem'>
+            Due Date
+          </div>
+          <div className='cardInitItem'>
+            Grade
+          </div>
+          <div className='cardInitItem'>
+            State
+          </div>
+          <div className='expanderIcon'>
+          </div>
+        </div>
+      </Subheader>
+
       {assignments.items.map((item) => {
         return(
         <Card key={item.id} className='level1 assignmentCard'>
