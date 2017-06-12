@@ -1,14 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import Subheader from 'material-ui/Subheader';
 import Paper from 'material-ui/Paper';
 import Menu from 'material-ui/Menu';
 import MenuItem from 'material-ui/MenuItem';
-import ClassStream from './ClassStream';
 import { SpeedDial, BubbleList, BubbleListItem } from 'react-speed-dial';
 import Avatar from 'material-ui/Avatar';
 import { blue500 } from 'material-ui/styles/colors';
-import { Link } from 'react-router-dom';
 import { List, ListItem } from 'material-ui';
 
 import ActionList from 'material-ui/svg-icons/action/list';
@@ -29,6 +28,7 @@ import Assessment from 'material-ui/svg-icons/action/assessment';
 import Assignment from 'material-ui/svg-icons/action/assignment';
 
 import ClassToolbar from './ClassToolbar';
+import ClassStream from './ClassStream';
 
 import './Class.css';
 
