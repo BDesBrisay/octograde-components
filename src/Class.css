@@ -103,7 +103,11 @@
     }
     .cardInit
     {
-        flex-flow: row wrap;
+        flex-flow: column wrap;
+    }
+    .cardInitItem
+    {
+        flex-basis: 100%;
     }
 }
 
@@ -142,6 +146,7 @@
 .cardInitItem
 {
     display: flex;
+    overflow: hidden;
 
     text-align: center;
 
@@ -156,15 +161,25 @@
 {
     margin: 8px;
 }
-.lastItemDone,
-.lastItemDone svg
+.tableItemCont
+{
+    display: flex;
+    overflow: hidden;
+
+    text-align: center;
+
+    align-items: center;
+    justify-content: flex-start;
+}
+.itemDone,
+.itemDone svg
 {
     color: #4caf50 !important;
 
     fill: #4caf50 !important;
 }
-.lastItemLate,
-.lastItemLate svg
+.itemLate,
+.itemLate svg
 {
     color: #ef5350 !important;
 
@@ -174,10 +189,11 @@
 {
     display: flex;
 
-    text-align: center;
+    text-align: right;
 
     align-items: center;
     justify-content: flex-end;
+    flex-basis: 5%;
 }
 .assignmentCard
 {
