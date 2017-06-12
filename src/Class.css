@@ -199,3 +199,13 @@
 {
     margin-bottom: 20px;
 }
+.streamCardTitleCont
+{
+    display: flex;
+
+    align-items: center;
+}
+.streamCardTitleCont svg
+{
+    padding-right: 10px;
+}
