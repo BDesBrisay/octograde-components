@@ -34,7 +34,7 @@
     }
     .cardInitItem
     {
-        flex-basis: 24%;
+        flex-basis: 25%;
     }
 }
 
@@ -103,7 +103,11 @@
     }
     .cardInit
     {
-        flex-flow: row wrap;
+        flex-flow: column wrap;
+    }
+    .cardInitItem
+    {
+        flex-basis: 100%;
     }
 }
 
